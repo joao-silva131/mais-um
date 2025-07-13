@@ -1,99 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>mais um texto chato</title>
+  <meta charset="UTF-8">
+  <title>Mistério do Cadeado</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 40px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #eee;
       text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      max-width: 400px;
-      animation: aparecer 2s ease;
+      padding: 30px;
     }
-
-    @keyframes aparecer {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
     h1 {
-      color: #e91e63;
-      font-size: 2em;
+      font-size: 2.5em;
+      color: #0ff;
     }
-
-    p {
-      font-size: 1.1em;
-      color: #333;
+    .cadeado {
+      font-size: 4em;
       margin: 20px 0;
-      text-align: justify; /* alinhamento justificado */
-      line-height: 1.5em;
     }
-
-    .btn {
-      background: #e91e63;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
+    .pergunta {
+      margin-bottom: 25px;
+      text-align: left;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
       cursor: pointer;
+    }
+    button {
+      padding: 10px 20px;
       font-size: 1em;
-      transition: background 0.3s;
+      background-color: #0ff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
     }
-
-    .btn:hover {
-      background: #d81b60;
-    }
-
-    .heart {
-      font-size: 2em;
-      animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-
-    audio {
-      display: none; /* Esconde o player */
+    #resultado {
+      margin-top: 30px;
+      font-size: 1.5em;
     }
   </style>
 </head>
 <body>
-  <!-- Música de fundo -->
-  <audio autoplay loop>
-    <source src="musica.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
 
-  <div class="card">
-    <div class="heart">❤️</div>
-    <p>
-      Ela é baixinha, mas se acha da altura do Cristo Redentor e, sinceramente, tem moral pra isso. Usa óculos, mas enxerga tudo: meus defeitos, meus erros… e mesmo assim insiste em gostar de mim (eu acho) vai entender a cabeça dela. O temperamento dela? Digamos que é como café forte: te acorda, te sacode e, às vezes, te dá um leve ataque de ansiedade. Mas olha… que mulher linda! É tipo bug no sistema: ninguém consegue explicar, só aceita. E o cheiro? Um negócio tão bom que já pensei em embalar pra vender. Ela é o caos mais maravilhoso que já passou pela minha vida e eu, burro, ainda me apaixono mais a cada dia.
-    </p>
-    <button class="btn" onclick="abrirVideo()">clica ai</button>
+  <h1>🔒 Desvende o Mistério do Cadeado</h1>
+  <p>Responda corretamente às 4 perguntas para abrir o cadeado!</p>
+  
+  <div class="cadeado" id="cadeado">🔒</div>
+
+  <div class="pergunta">
+    <p><strong>1. quem e a menina mais bonita da UFMA?</strong></p>
+    <label><input type="radio" name="q1" value="Layra Marques"> Layra Marques</label>
+    <label><input type="radio" name="q1" value="sao"> ta lendo essa alternativa porque tu ja sabe a resposta</label>
+    <label><input type="radio" name="q1" value="brasilia"> tu ainda tem duvida?</label>
   </div>
 
+  <div class="pergunta">
+    <p><strong>2. quem e mais cheirosa da UFMA? </strong></p>
+    <label><input type="radio" name="q2" value="venus"> nem uma todas vedem</label>
+    <label><input type="radio" name="q2" value="Layra Marques"> Layra Marques </label>
+    <label><input type="radio" name="q2" value="jupiter"> tu realmente nao sabe a resposta?</label>
+  </div>
+
+  <div class="pergunta">
+    <p><strong>3. primeira coisa que vou fazer quando ver o joao</strong></p>
+    <label><input type="radio" name="q3" value="54"> um cheiro </label>
+    <label><input type="radio" name="q3" value="um cheiro nada, um monte cheiro"> um cheiro nada, um monte cheiro</label>
+    <label><input type="radio" name="q3" value="64"> nao vai ter cheiro😔</label>
+  </div>
+
+  <div class="pergunta">
+    <p><strong>4.o joao e um cara legal?</strong></p>
+    <label><input type="radio" name="q4" value=" ouro"> e legalzinho</label>
+    <label><input type="radio" name="q4" value=" e bonito e cheiroso mas e apressado"> e bonito e cheiroso mas e apressado </label>
+    <label><input type="radio" name="q4" value="zinco"> feio(com certeza nao e essa)</label>
+  </div>
+
+  <button onclick="verificarRespostas()">Tentar Abrir o Cadeado</button>
+
+  <div id="resultado"></div>
+
   <script>
-    function abrirVideo() {
-      window.open("https://www.youtube.com/watch?v=FkXWfreN2QA&list=RDFkXWfreN2QA&start_radio=1", "_blank");
+    function verificarRespostas() {
+      const r1 = document.querySelector('input[name="q1"]:checked');
+      const r2 = document.querySelector('input[name="q2"]:checked');
+      const r3 = document.querySelector('input[name="q3"]:checked');
+      const r4 = document.querySelector('input[name="q4"]:checked');
+      const cadeado = document.getElementById("cadeado");
+      const resultado = document.getElementById("resultado");
+
+      if (!r1 || !r2 || !r3 || !r4) {
+        resultado.innerHTML = "<span style='color:yellow;'>⚠️ Responda todas as perguntas!</span>";
+        return;
+      }
+
+      const correta1 = r1.value === "Layra Marques";
+      const correta2 = r2.value === "Layra Marques";
+      const correta3 = r3.value === "um cheiro nada, um monte cheiro";
+      const correta4 = r4.value === "e bonito e cheiroso mas e apressado";
+
+      if (correta1 && correta2 && correta3 && correta4) {
+        cadeado.textContent = "🔓";
+        resultado.innerHTML = "<span style='color:lightgreen;'>✅ Parabéns! Você abriu o cadeado!provalvelmete o dono desse link tem problemas mentais ou ta apaixonado por você</span>";
+        setTimeout(() => {
+          // 🔁 Substitua o link abaixo pelo link que você deseja
+          window.location.href = "https://www.youtube.com/shorts/_FhOV2vNaxg";
+        }, 2000); // Espera 2 segundos antes de redirecionar
+      } else {
+        cadeado.textContent = "🔒";
+        resultado.innerHTML = "<span style='color:salmon;'>❌ Alguma resposta está errada. Tente novamente!</span>";
+      }
     }
   </script>
+
 </body>
 </html>
