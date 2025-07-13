@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>mais um texto chato</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      animation: aparecer 2s ease;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #333;
+      margin: 20px 0;
+      text-align: justify; /* alinhamento justificado */
+      line-height: 1.5em;
+    }
+
+    .btn {
+      background: #e91e63;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #d81b60;
+    }
+
+    .heart {
+      font-size: 2em;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    audio {
+      display: none; /* Esconde o player */
+    }
+  </style>
+</head>
+<body>
+  <!-- Música de fundo -->
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <div class="card">
+    <div class="heart">❤️</div>
+    <p>
+      Ela é baixinha, mas se acha da altura do Cristo Redentor e, sinceramente, tem moral pra isso. Usa óculos, mas enxerga tudo: meus defeitos, meus erros… e mesmo assim insiste em gostar de mim (eu acho) vai entender a cabeça dela. O temperamento dela? Digamos que é como café forte: te acorda, te sacode e, às vezes, te dá um leve ataque de ansiedade. Mas olha… que mulher linda! É tipo bug no sistema: ninguém consegue explicar, só aceita. E o cheiro? Um negócio tão bom que já pensei em embalar pra vender. Ela é o caos mais maravilhoso que já passou pela minha vida e eu, burro, ainda me apaixono mais a cada dia.
+    </p>
+    <button class="btn" onclick="abrirVideo()">clica ai</button>
+  </div>
+
+  <script>
+    function abrirVideo() {
+      window.open("https://www.youtube.com/watch?v=FkXWfreN2QA&list=RDFkXWfreN2QA&start_radio=1", "_blank");
+    }
+  </script>
+</body>
+</html>
